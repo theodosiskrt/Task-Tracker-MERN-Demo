@@ -40,13 +40,9 @@ const toggleReminder = async (id) => {
 
 //Delete Task
 const deleteTask = async (id) => {
-  await axios.delete(`http://localhost:5000/${id}`)
-  .then(({data}) => {
-      if(data){
-        setTasks([...data]);
-      }
-    }
-  )
+  const res = await axios.delete(`http://localhost:5000/${id}`)
+  if(res.data);
+    setTasks(tasks.filter((task) => task._id !== id));
 }
 
 const addTask = async (task) => {

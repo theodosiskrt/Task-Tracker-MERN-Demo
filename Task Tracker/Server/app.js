@@ -41,8 +41,7 @@ app.post('/:id', async (req, res) => {
 app.delete('/:id', async (req, res) => {
     const {id} = req.params;
     await task.findByIdAndDelete(id);
-    const tasks = await task.find();
-    res.json(tasks);
+    res.send(true);
 
 })
 
